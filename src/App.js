@@ -6,13 +6,14 @@ function App() {
 
   const [title, setTitle] = useState([{ title: "" }]);
 
-  const handleFormChange = (test, event, index) => {
-    if (test !== "title") {
-      let data = [...formFields];
+  const handleFormChange = (name, event, index) => {
+    let data;
+    if (name !== "title") {
+      data = [...formFields];
       data[index][event.target.name] = event.target.value;
       setFormFields(data);
     } else {
-      let data = [...title];
+      data = [...title];
       data[index][event.target.name] = event.target.value;
       setTitle(data);
     }
@@ -20,7 +21,6 @@ function App() {
 
   const submit = (e) => {
     e.preventDefault();
-    // console.log(title, formFields);
 
     var titleValue = title[0];
     var test = formFields[0];
@@ -29,11 +29,7 @@ function App() {
       ...titleValue,
       ...test
     };
-
     console.log(merged);
-
-    // const allRules = Object.assign({}, formFields, title);
-    // console.log(allRules)
   };
 
   const addFields = () => {
