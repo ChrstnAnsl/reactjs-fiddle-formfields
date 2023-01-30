@@ -23,12 +23,12 @@ function App() {
     e.preventDefault();
 
     var titleValue = title[0];
-    var test = formFields[0];
-
+    
     let merged = {
       ...titleValue,
-      ...test
+      ...formFields
     };
+
     console.log(merged);
   };
 
